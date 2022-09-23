@@ -18,17 +18,19 @@ public class ClubHit : MonoBehaviour
     void Update()
     {
         Vector3 currentPosition = this.gameObject.transform.position;
-        _hitDirection = currentPosition - _oldPosition;
+        _hitDirection = (currentPosition - _oldPosition).normalized;
         _oldPosition = currentPosition;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Ball Hit!!");
+        
         if (collision.gameObject.CompareTag("ball"))
         {
+            Debug.Log("Ball Hit!!");
+            Debug.DrawRay(collision.gameObject.transform.position, _hitDirection, Color.red, 10.0f, true);
             // TODO compute this vector
-            collision.gameObject.GetComponent<Rigidbody>().AddForce(200 * _hitDirection);
+            collision.gameObject.GetComponent<Rigidbody>().AddForce(3 * _hitDirection, ForceMode.Impulse);
         }
     }
 }
