@@ -425,10 +425,10 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 32}
-      m_SelectedIDs: 22660000
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: eac1ffff2cfbffff
+      m_ExpandedIDs: 2cfbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -677,9 +677,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -35.098682, y: 35.23276, z: -17.727442}
+    m_Target: {x: -29.299782, y: 37.96808, z: -16.508678}
     speed: 2
-    m_Value: {x: -35.098682, y: 35.23276, z: -17.727442}
+    m_Value: {x: -29.299782, y: 37.96808, z: -16.508678}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -726,17 +726,17 @@ MonoBehaviour:
     m_GridAxis: 0
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.17067984, y: 0.006075048, z: -0.0018509943, w: -0.9854325}
+    m_Target: {x: -0.0843412, y: -0.052059602, z: 0.0036421972, w: -0.9951946}
     speed: 2
-    m_Value: {x: -0.17065857, y: 0.006074291, z: -0.0018507638, w: -0.9853098}
+    m_Value: {x: -0.08433068, y: -0.05205311, z: 0.003641743, w: -0.99507064}
   m_Size:
-    m_Target: 17.14724
+    m_Target: 11.391895
     speed: 2
-    m_Value: 17.14724
+    m_Value: 12.533831
   m_Ortho:
-    m_Target: 0
+    m_Target: 1
     speed: 2
-    m_Value: 0
+    m_Value: 1
   m_CameraSettings:
     m_Speed: 0.82058996
     m_SpeedNormalized: 0.40999997
@@ -750,8 +750,8 @@ MonoBehaviour:
     m_FarClip: 10000
     m_DynamicClip: 1
     m_OcclusionCulling: 0
-  m_LastSceneViewRotation: {x: 0.033509217, y: 0.023123978, z: -0.00008211416, w: 0.99927926}
-  m_LastSceneViewOrtho: 0
+  m_LastSceneViewRotation: {x: -0.0843412, y: -0.052059602, z: 0.0036421972, w: -0.9951946}
+  m_LastSceneViewOrtho: 1
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 
   m_SceneVisActive: 1
@@ -839,9 +839,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 95}
-    m_SelectedIDs: 20620000
-    m_LastClickedID: 25120
-    m_ExpandedIDs: 00000000d661000020620000886200008c6200005a6300005e63000000ca9a3bffffff7f
+    m_SelectedIDs: 6a630000
+    m_LastClickedID: 25450
+    m_ExpandedIDs: 000000002063000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -869,7 +869,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000d6610000
+    m_ExpandedIDs: 0000000020630000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
