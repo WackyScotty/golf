@@ -10,6 +10,7 @@ public class ClubHit : MonoBehaviour
     // Idea, we want to be averaging the golf hits over a set amount of
     // For now the last half of a second
     // fixedUpdate updates every 0.02 seconds
+    public GameObject clubHead;
     private Vector3[] _directionArrays;
     private int _currentDirIndex;
     
@@ -34,9 +35,15 @@ public class ClubHit : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector3 currentPosition = this.gameObject.transform.position;
+        Vector3 currentPosition = clubHead.transform.position;
+        Debug.DrawLine(_oldPosition, currentPosition, Color.red, 1000);
+        Debug.Log("old Position");
+        Debug.Log(_oldPosition);
+        Debug.Log("New Position");
+        Debug.Log(currentPosition);
         _directionArrays[_currentDirIndex] = currentPosition - _oldPosition;
         _currentDirIndex = (_currentDirIndex + 1) % 50;
+        _oldPosition = currentPosition;
 
     }
 
@@ -46,7 +53,6 @@ public class ClubHit : MonoBehaviour
         if (collision.gameObject.CompareTag("ball"))
         {
             Debug.Log("Ball Hit!!");
-            Debug.DrawRay(collision.gameObject.transform.position, _hitDirection, Color.red, 10000.0f, false);
             // take the average of our direction array
             Vector3 _arraysum = Vector3.zero;
             for (var i = 0; i < _directionArrays.Length; i++)
@@ -56,6 +62,7 @@ public class ClubHit : MonoBehaviour
 
             _arraysum /= _directionArrays.Length;
             collision.gameObject.GetComponent<Rigidbody>().AddForce(5 * _arraysum, ForceMode.Impulse);
+            Debug.DrawRay(collision.gameObject.transform.position, 10 * _arraysum, Color.blue, 10000);
         }
     }
 }

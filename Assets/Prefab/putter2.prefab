@@ -65,6 +65,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c326a9a0c06cc6a44a8e86d5a5e04fca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clubHead: {fileID: 5286916578773398541}
 --- !u!1 &4377252877699617331
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,7 +259,7 @@ GameObject:
   - component: {fileID: 3635119534128640526}
   - component: {fileID: 2689291644235885752}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
