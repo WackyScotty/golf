@@ -2717,6 +2717,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2418342578322989988, guid: 3104f3e007eab2747a8adf4b4b18fc1c, type: 3}
+      propertyPath: m_Drag
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2418342578322989988, guid: 3104f3e007eab2747a8adf4b4b18fc1c, type: 3}
+      propertyPath: m_Mass
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2418342578322989988, guid: 3104f3e007eab2747a8adf4b4b18fc1c, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 2418342578322989991, guid: 3104f3e007eab2747a8adf4b4b18fc1c, type: 3}
       propertyPath: m_Name
       value: golf ball
