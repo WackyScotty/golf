@@ -56,17 +56,15 @@ public class ClubHit : MonoBehaviour
         if (_hit)
         {
 
-            Rigidbody rb = ballRef.GetComponent<Rigidbody>();
-            if (rb.velocity.magnitude < 0.2)
+            if (_ballRigidbody.velocity.magnitude < 0.3)
             {
-                rb.velocity = Vector3.zero;
-                rb.angularVelocity = Vector3.zero;
-                Debug.Log("Can hit again");
+                _ballRigidbody.velocity = Vector3.zero;
+                _ballRigidbody.angularVelocity = Vector3.zero;
                 _hit = false;
                 _rigidBody.detectCollisions = true;
                 if (ballRef)
                 {
-                    ballRef.GetComponent<MeshRenderer>().material = defaultMaterial;
+                    _ballMeshRender.material = defaultMaterial;
                 }
             }
         }
@@ -95,6 +93,7 @@ public class ClubHit : MonoBehaviour
         
         if (collision.gameObject.CompareTag("ball") && !_hit)
         {
+            Debug.Log("Hit Registered!");
             _hit = true;
             _rigidBody.detectCollisions = false;
             _ballMeshRender.material = hitMaterial;
