@@ -104,7 +104,7 @@ public class ClubHit : MonoBehaviour
             }
 
             //arraysum.y = 0;
-            _ballRigidbody.AddForce(4 * arraysum, ForceMode.Impulse);
+            _ballRigidbody.AddForce(5 * arraysum, ForceMode.Impulse);
             SendHaptics();
             sound.PlayOneShot(hitSound);
         }
