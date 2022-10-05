@@ -29,6 +29,8 @@ public class ClubHit : MonoBehaviour
     public XRBaseController Controller;
     public float hitTime;
     public int strokeCount;
+    public AudioSource sound;
+    public AudioClip hitSound;
     void Start()
     {
         strokeCount = 0;
@@ -104,6 +106,7 @@ public class ClubHit : MonoBehaviour
             //arraysum.y = 0;
             _ballRigidbody.AddForce(4 * arraysum, ForceMode.Impulse);
             SendHaptics();
+            sound.PlayOneShot(hitSound);
         }
         else if (collision.gameObject.CompareTag("ball"))
         {
