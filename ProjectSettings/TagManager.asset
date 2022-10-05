@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ball
   - controller
+  - lake
   layers:
   - Default
   - TransparentFX
