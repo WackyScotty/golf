@@ -6,6 +6,8 @@ using UnityEngine;
 public class BallWater : MonoBehaviour
 {
     public Vector3 oldPositionFromhit;
+    public AudioSource audioSource;
+    public AudioClip splash;
 
     public Rigidbody myRigidBody; 
     // Start is called before the first frame update
@@ -33,7 +35,7 @@ public class BallWater : MonoBehaviour
             this.gameObject.transform.position = oldPositionFromhit;
             myRigidBody.velocity = Vector3.zero;
             myRigidBody.angularVelocity = Vector3.zero;
-
+            audioSource.PlayOneShot(splash);
         } 
     }
 }

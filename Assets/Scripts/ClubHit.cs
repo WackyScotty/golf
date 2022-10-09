@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.SceneManagement;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class ClubHit : MonoBehaviour
@@ -103,7 +104,7 @@ public class ClubHit : MonoBehaviour
                 arraysum += _directionArrays[i];
             }
 
-            //arraysum.y = 0;
+            arraysum.y += (arraysum.magnitude * 0.3f);
             _ballRigidbody.AddForce(5 * arraysum, ForceMode.Impulse);
             SendHaptics();
             sound.PlayOneShot(hitSound);

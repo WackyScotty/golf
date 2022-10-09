@@ -6,6 +6,9 @@ using UnityEngine;
 public class BumperScript : MonoBehaviour
 {
     public Rigidbody ballRigidBody;
+
+    public AudioClip bounceSound;
+    public AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,8 +25,9 @@ public class BumperScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("ball"))
         {
-            ballRigidBody.AddForce(20 * collision.contacts[0].normal, ForceMode.Impulse);
+            ballRigidBody.AddForce(10 * collision.contacts[0].normal, ForceMode.Impulse);
             Debug.DrawRay(collision.contacts[0].point, collision.contacts[0].normal);
+            audioSource.PlayOneShot(bounceSound);
         }
     }
 }
