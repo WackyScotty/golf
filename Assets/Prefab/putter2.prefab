@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6400219277457881648}
   m_Layer: 0
   m_Name: putter2
-  m_TagString: Untagged
+  m_TagString: controller
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52,6 +52,7 @@ MonoBehaviour:
   clubHead: {fileID: 5286916578773398541}
   defaultMaterial: {fileID: 2100000, guid: c1c92e4c9031adf4cae19cb08713de0c, type: 2}
   hitMaterial: {fileID: 2100000, guid: 07dc4f3b3ccf9b94a9cae3a0ccac908f, type: 2}
+  Controller: {fileID: 0}
 --- !u!54 &6400219277457881648
 Rigidbody:
   m_ObjectHideFlags: 0

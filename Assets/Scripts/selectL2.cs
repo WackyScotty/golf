@@ -4,7 +4,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class selectL2 : MonoBehaviour
-{
+{   
+    // public void MoveToScene(string sceneID)
+    // {
+    //     SceneManager.LoadScene(sceneID);
+    // }
     public string LevelName;
     // Start is called before the first frame update
     void Start()
