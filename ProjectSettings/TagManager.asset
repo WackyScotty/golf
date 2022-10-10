@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ball
   - controller
+  - start
   - lake
   layers:
   - Default
