@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Lv 3 GOLF
+  m_Name: Ground 3
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ValidKeywords:
   - _METALLICGLOSSMAP
@@ -24,7 +24,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 17b1c21737498423b845bd717258982f, type: 3}
+        m_Texture: {fileID: 2800000, guid: a5258ace75464468c8f10680864a1604, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -44,11 +44,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: bfc6ad2531c1843409b6e403dce10d24, type: 3}
+        m_Texture: {fileID: 2800000, guid: 2f633947d00f74c4dad2d5f0b8354eab, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: f2cbb9bb7aae14b28b1139ef41470d3d, type: 3}
+        m_Texture: {fileID: 2800000, guid: e1599474c19c04c98b892e1f020358eb, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -56,7 +56,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
-        m_Texture: {fileID: 2800000, guid: f4a55e69a122443509a948a177fb011a, type: 3}
+        m_Texture: {fileID: 2800000, guid: 7cf33d4ecc9954a72a2b1f1261074e6b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
