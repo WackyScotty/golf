@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.SceneManagement;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class ClubHit : MonoBehaviour
@@ -15,7 +16,7 @@ public class ClubHit : MonoBehaviour
     public GameObject clubHead;
     private Vector3[] _directionArrays;
     private int _currentDirIndex;
-    private int _arraysize = 20;
+    private int _arraysize = 5;
     private Vector3 _hitDirection;
     private Vector3 _oldPosition;
     private Vector3 _arraySum; // declared here to avoid the cost of declaration at collision
@@ -27,10 +28,13 @@ public class ClubHit : MonoBehaviour
     private Rigidbody _ballRigidbody;
     private Rigidbody _rigidBody;
     public XRBaseController Controller;
-    
+    public float hitTime;
+    public int strokeCount;
+    public AudioSource sound;
+    public AudioClip hitSound;
     void Start()
     {
-        _counter = 0;
+        strokeCount = 0;
         _hit = false;
         _directionArrays = new Vector3[_arraysize];
         _rigidBody = this.gameObject.GetComponent<Rigidbody>();
@@ -55,37 +59,32 @@ public class ClubHit : MonoBehaviour
     {
         if (_hit)
         {
-
-            if (_ballRigidbody.velocity.magnitude < 0.3)
+            if (_ballRigidbody.velocity.magnitude < 0.3 && hitTime > 1.0f)
             {
                 _ballRigidbody.velocity = Vector3.zero;
                 _ballRigidbody.angularVelocity = Vector3.zero;
                 _hit = false;
-                _rigidBody.detectCollisions = true;
                 if (ballRef)
                 {
                     _ballMeshRender.material = defaultMaterial;
                 }
+                _rigidBody.detectCollisions = true;
             }
         }
     }
 
-    private int _counter;
 
     private void FixedUpdate()
     {
-        _counter++;
-        if (_counter == 2)
+        Vector3 currentPosition = clubHead.transform.position; 
+        Debug.DrawLine(_oldPosition, currentPosition, Color.red, 1000);
+        _directionArrays[_currentDirIndex] = currentPosition - _oldPosition;
+        _currentDirIndex = (_currentDirIndex + 1) % _arraysize;
+        _oldPosition = currentPosition;
+        if (_hit)
         {
-            Vector3 currentPosition = clubHead.transform.position; 
-            Debug.DrawLine(_oldPosition, currentPosition, Color.red, 1000);
-            _directionArrays[_currentDirIndex] = currentPosition - _oldPosition;
-            _currentDirIndex = (_currentDirIndex + 1) % _arraysize;
-            _oldPosition = currentPosition;
-            _counter = 0;
+            hitTime += Time.fixedDeltaTime;
         }
-
-        
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -93,9 +92,10 @@ public class ClubHit : MonoBehaviour
         
         if (collision.gameObject.CompareTag("ball") && !_hit)
         {
-            Debug.Log("Hit Registered!");
-            _hit = true;
+            strokeCount++;
             _rigidBody.detectCollisions = false;
+            _hit = true;
+            hitTime = 0;
             _ballMeshRender.material = hitMaterial;
             // take the average of our direction array
             Vector3 arraysum = Vector3.zero;
@@ -104,9 +104,10 @@ public class ClubHit : MonoBehaviour
                 arraysum += _directionArrays[i];
             }
 
-            arraysum.y = 0;
-            _ballRigidbody.AddForce(4 * arraysum, ForceMode.Impulse);
+            arraysum.y += (arraysum.magnitude * 0.3f);
+            _ballRigidbody.AddForce(5 * arraysum, ForceMode.Impulse);
             SendHaptics();
+            sound.PlayOneShot(hitSound);
         }
         else if (collision.gameObject.CompareTag("ball"))
         {
