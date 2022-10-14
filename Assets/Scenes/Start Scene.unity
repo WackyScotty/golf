@@ -2312,6 +2312,11 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 137746646020217952, guid: 82b2c64f4e2d5264bbf0f909cadda2fa, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 82b2c64f4e2d5264bbf0f909cadda2fa, type: 3}
+--- !u!4 &688200635 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3648530561855970334, guid: 48c3bcc7ab7c0254c992ee03ccdd73dd, type: 3}
+  m_PrefabInstance: {fileID: 3648530561475258596}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &731082659
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6566,13 +6571,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1876351254}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.1531, y: 1.078, z: 13.168}
-  m_LocalScale: {x: 0.0024916185, y: 0.002751677, z: 0.0024916185}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0.00014516598, y: 2.2536056, z: 0.00075062143}
+  m_LocalScale: {x: 0.003612077, y: 0.0074851112, z: 0.059656415}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_Father: {fileID: 688200635}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1925215876
 PrefabInstance:
@@ -7234,8 +7239,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3648530562036061613, guid: 48c3bcc7ab7c0254c992ee03ccdd73dd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 48c3bcc7ab7c0254c992ee03ccdd73dd, type: 3}
+--- !u!1 &3648530561475258597 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3648530562036061607, guid: 48c3bcc7ab7c0254c992ee03ccdd73dd, type: 3}
+  m_PrefabInstance: {fileID: 3648530561475258596}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3648530561475258598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3648530561475258597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8b2ceb7ddeafa24c96faae96c7b0a9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  threshold: 0.1
+  deadZone: 0.025
+  onPressed:
+    m_PersistentCalls:
+      m_Calls: []
+  onReleased:
+    m_PersistentCalls:
+      m_Calls: []
+  nextScene: Scenes/Level 2
 --- !u!1001 &4453375449007495010
 PrefabInstance:
   m_ObjectHideFlags: 0

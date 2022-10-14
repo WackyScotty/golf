@@ -25,6 +25,7 @@ public class LeftHand : MonoBehaviour
 
     public GameObject Ball;
     public GameObject Player;
+    public GameObject nextLevel;
 
     private void Awake()
     {
@@ -67,6 +68,15 @@ public class LeftHand : MonoBehaviour
         RightHand right = gameObject.GetComponent<RightHand>();
         right.thisHandActive = false;
         Vector3 forward = Player.transform.forward;
-        Player.transform.position = Ball.transform.position - (0.5f * forward);
+        if (nextLevel.activeInHierarchy)
+        {
+            Vector3 newPosition = nextLevel.transform.position - (0.75f * forward);
+            newPosition.y = Player.transform.position.y;
+            Player.transform.position = newPosition;
+        }
+        else
+        {
+            Player.transform.position = Ball.transform.position - (0.5f * forward);
+        }
     }
 }

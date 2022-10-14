@@ -13,6 +13,7 @@ public class Next_Level : MonoBehaviour
     private ConfigurableJoint _joint;
 
     public UnityEvent onPressed, onReleased;
+    public String nextScene;
 
     void Start()
     {
@@ -60,6 +61,6 @@ public class Next_Level : MonoBehaviour
     public void MoveToScene()
     {
         Debug.Log("Calling Move to scene");
-        SceneManager.LoadSceneAsync("Scenes/Level 3");
+        SceneManager.LoadSceneAsync(nextScene);
     }
 }

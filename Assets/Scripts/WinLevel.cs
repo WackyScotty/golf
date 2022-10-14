@@ -13,6 +13,7 @@ public class WinLevel : MonoBehaviour
 
     public GameObject player;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,7 +40,7 @@ public class WinLevel : MonoBehaviour
     {
         menu.SetActive(true);
         Vector3 playerPosition = player.transform.position;
-        Vector3 nextLevelPosition = playerPosition + (2.5f * player.transform.forward);
+        Vector3 nextLevelPosition = playerPosition + (2f * player.transform.forward);
         nextLevelPosition.y = playerPosition.y;
         menu.transform.position = nextLevelPosition;
     }
