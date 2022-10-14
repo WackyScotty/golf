@@ -20,6 +20,8 @@ public class LeftHand : MonoBehaviour
 
     private GameObject _rightPutter;
     private GameObject _leftPutter;
+    private ClubHit _rightHit;
+    private ClubHit _leftHit;
 
     public GameObject Ball;
     public GameObject Player;
@@ -48,10 +50,20 @@ public class LeftHand : MonoBehaviour
             Debug.Log("Got controllers");
             // Get the putter object (child of child of left and right hand
             _rightPutter = rightHand.transform.GetChild(0).GetChild(0).gameObject;
+            _rightHit = _rightPutter.GetComponent<ClubHit>();
             _leftPutter = leftHand.transform.GetChild(0).GetChild(0).gameObject;
+            _leftHit = _leftPutter.GetComponent<ClubHit>();
         }
         _rightPutter.SetActive(!thisHandActive);
         _leftPutter.SetActive(thisHandActive);
+        if (_leftHit.hit)
+        {
+            _rightHit.hit = true;
+        }
+        if (_rightHit.hit)
+        {
+            _leftHit.hit = true;
+        }
         RightHand right = gameObject.GetComponent<RightHand>();
         right.thisHandActive = false;
         Vector3 forward = Player.transform.forward;

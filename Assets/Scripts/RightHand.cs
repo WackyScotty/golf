@@ -18,6 +18,8 @@ public class RightHand : MonoBehaviour
 
     private GameObject _rightPutter;
     private GameObject _leftPutter;
+    private ClubHit _rightHit;
+    private ClubHit _leftHit;
 
     public GameObject Ball;
     public GameObject Player;
@@ -33,9 +35,7 @@ public class RightHand : MonoBehaviour
         rightTrigger.action.started -= Toggle;
     }
 
-    private void Toggle(InputAction.CallbackContext context)
-    {
-        thisHandActive = true;
+    private void Toggle(InputAction.CallbackContext context) { thisHandActive = true;
         Debug.Log("Switching Hands");
         // Get the XR controller of our two hands
         // Set the prefab of the active hand to None
@@ -46,9 +46,19 @@ public class RightHand : MonoBehaviour
             Debug.Log("Got controllers");
             // Get the putter object (child of child of left and right hand
             _rightPutter = rightHand.transform.GetChild(0).GetChild(0).gameObject;
+            _rightHit = _rightPutter.GetComponent<ClubHit>();
             _leftPutter = leftHand.transform.GetChild(0).GetChild(0).gameObject;
+            _leftHit = _leftPutter.GetComponent<ClubHit>();
         }
         _rightPutter.SetActive(thisHandActive);
+        if (_leftHit.hit)
+        {
+            _rightHit.hit = true;
+        }
+        if (_rightHit.hit)
+        {
+            _leftHit.hit = true;
+        }
         _leftPutter.SetActive(!thisHandActive);
         LeftHand left = gameObject.GetComponent<LeftHand>();
         left.thisHandActive = false;
