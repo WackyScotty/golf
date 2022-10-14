@@ -212,6 +212,8 @@ GameObject:
   - component: {fileID: 53098729}
   - component: {fileID: 53098728}
   - component: {fileID: 53098727}
+  - component: {fileID: 53098732}
+  - component: {fileID: 53098731}
   m_Layer: 0
   m_Name: banana_duck:Mesh (1)
   m_TagString: Untagged
@@ -314,6 +316,45 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 53098725}
   m_Mesh: {fileID: -31366208341432228, guid: d03d0af439d604ad9b37e8fee112f0f1, type: 3}
+--- !u!95 &53098731
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 53098725}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bbfc29423612d441cadbb703f58c17b6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!320 &53098732
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 53098725}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 037ba7ecdb2564356b070ad2d514c685, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 1
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: -6871109133585304876, guid: 037ba7ecdb2564356b070ad2d514c685, type: 2}
+    value: {fileID: 53098731}
+  m_ExposedReferences:
+    m_References: []
 --- !u!1001 &61984318
 PrefabInstance:
   m_ObjectHideFlags: 0
