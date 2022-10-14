@@ -5,6 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class ClubHit : MonoBehaviour
@@ -20,11 +21,11 @@ public class ClubHit : MonoBehaviour
     private Vector3 _hitDirection;
     private Vector3 _oldPosition;
     private Vector3 _arraySum; // declared here to avoid the cost of declaration at collision
-    private bool _hit; 
+    public bool hit; 
     public Material defaultMaterial;
     public Material hitMaterial;
     private GameObject ballRef;
-    private MeshRenderer _ballMeshRender;
+    public MeshRenderer clubMeshRenderer;
     private Rigidbody _ballRigidbody;
     private Rigidbody _rigidBody;
     public XRBaseController Controller;
@@ -32,41 +33,40 @@ public class ClubHit : MonoBehaviour
     public int strokeCount;
     public AudioSource sound;
     public AudioClip hitSound;
+    public bool right;
     void Start()
     {
         strokeCount = 0;
-        _hit = false;
+        hit = false;
         _directionArrays = new Vector3[_arraysize];
         _rigidBody = this.gameObject.GetComponent<Rigidbody>();
         for(var i = 0; i < _directionArrays.Length; i++)
         {
             _directionArrays[i] = Vector3.zero;
         }
-        _currentDirIndex = 0;
 
-        GameObject[] controllers;
-        controllers = GameObject.FindGameObjectsWithTag("controller");
-        Debug.Assert(controllers.Length == 1);
-        GameObject rightController = controllers[0];
-        Controller = rightController.GetComponent<XRBaseController>();
+        Controller = transform.parent.parent.GetComponent<ActionBasedController>();
+        _currentDirIndex = 0;
+        
         ballRef = GameObject.FindWithTag("ball");
-        _ballMeshRender = ballRef.GetComponent<MeshRenderer>();
         _ballRigidbody = ballRef.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (_hit)
+        if (hit)
         {
+            _rigidBody.detectCollisions = false;
+            clubMeshRenderer.material = hitMaterial;
             if (_ballRigidbody.velocity.magnitude < 0.3 && hitTime > 1.0f)
             {
                 _ballRigidbody.velocity = Vector3.zero;
                 _ballRigidbody.angularVelocity = Vector3.zero;
-                _hit = false;
+                hit = false;
                 if (ballRef)
                 {
-                    _ballMeshRender.material = defaultMaterial;
+                    clubMeshRenderer.material = defaultMaterial;
                 }
                 _rigidBody.detectCollisions = true;
             }
@@ -81,7 +81,7 @@ public class ClubHit : MonoBehaviour
         _directionArrays[_currentDirIndex] = currentPosition - _oldPosition;
         _currentDirIndex = (_currentDirIndex + 1) % _arraysize;
         _oldPosition = currentPosition;
-        if (_hit)
+        if (hit)
         {
             hitTime += Time.fixedDeltaTime;
         }
@@ -90,13 +90,13 @@ public class ClubHit : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         
-        if (collision.gameObject.CompareTag("ball") && !_hit)
+        if (collision.gameObject.CompareTag("ball") && !hit)
         {
             strokeCount++;
-            _rigidBody.detectCollisions = false;
-            _hit = true;
+            hit = true;
             hitTime = 0;
-            _ballMeshRender.material = hitMaterial;
+            _rigidBody.detectCollisions = false;
+            clubMeshRenderer.material = hitMaterial;
             // take the average of our direction array
             Vector3 arraysum = Vector3.zero;
             for (var i = 0; i < _directionArrays.Length; i++)

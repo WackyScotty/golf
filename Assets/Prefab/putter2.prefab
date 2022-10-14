@@ -147,8 +147,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clubHead: {fileID: 5286916578773398541}
-  defaultMaterial: {fileID: 2100000, guid: c1c92e4c9031adf4cae19cb08713de0c, type: 2}
-  hitMaterial: {fileID: 2100000, guid: 07dc4f3b3ccf9b94a9cae3a0ccac908f, type: 2}
+  defaultMaterial: {fileID: 2100000, guid: d2f76d432d85d4913afb8ce843cdeb8d, type: 2}
+  hitMaterial: {fileID: 2100000, guid: 9d626be68bf3d4a4b9c65480632769b3, type: 2}
+  clubMeshRenderer: {fileID: 6628060944373685462}
   Controller: {fileID: 0}
   hitTime: 0
   strokeCount: 0
