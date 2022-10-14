@@ -11,6 +11,8 @@ public class WinLevel : MonoBehaviour
 
     public GameObject menu;
 
+    public GameObject player;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,13 +34,13 @@ public class WinLevel : MonoBehaviour
         }
     }
 
-    public void hide()
-    {
-        menu.SetActive(false);
-    }
 
     public void show()
     {
         menu.SetActive(true);
+        Vector3 playerPosition = player.transform.position;
+        Vector3 nextLevelPosition = playerPosition + (2.5f * player.transform.forward);
+        nextLevelPosition.y = playerPosition.y;
+        menu.transform.position = nextLevelPosition;
     }
 }

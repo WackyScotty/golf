@@ -25,11 +25,11 @@ public class Next_Level : MonoBehaviour
         if (!_isPressed && GetValue() + threshold >= 1)
         {
             Pressed();
-            Invoke(nameof(MoveToScene), 1.0f);
         }           
         if (_isPressed && GetValue() - threshold <= 0)
         {   
             Realeased();
+            Invoke(nameof(MoveToScene), 1.0f);
         }      
     }
 
@@ -60,6 +60,6 @@ public class Next_Level : MonoBehaviour
     public void MoveToScene()
     {
         Debug.Log("Calling Move to scene");
-        SceneManager.LoadScene("Scenes/Level 3");
+        SceneManager.LoadSceneAsync("Scenes/Level 3");
     }
 }
