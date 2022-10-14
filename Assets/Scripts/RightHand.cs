@@ -24,6 +24,7 @@ public class RightHand : MonoBehaviour
     public GameObject Ball;
     public GameObject Player;
     public GameObject nextLevel;
+    public GameObject instructions;
 
     private void Awake()
     {
@@ -42,6 +43,7 @@ public class RightHand : MonoBehaviour
         // Set the prefab of the active hand to None
         // Set the prefab of the inactive hand to putter 2
         // switch the active hand
+        instructions.SetActive(false);
         if (!_rightPutter && !_leftPutter)
         {
             Debug.Log("Got controllers");

@@ -26,6 +26,7 @@ public class LeftHand : MonoBehaviour
     public GameObject Ball;
     public GameObject Player;
     public GameObject nextLevel;
+    public GameObject instructions;
 
     private void Awake()
     {
@@ -41,6 +42,7 @@ public class LeftHand : MonoBehaviour
     private void Toggle(InputAction.CallbackContext context)
     {
         thisHandActive = true;
+        instructions.SetActive(false);
         Debug.Log("Switching Hands");
         // Get the XR controller of our two hands
         // Set the prefab of the active hand to None

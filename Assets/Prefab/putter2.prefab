@@ -147,6 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clubHead: {fileID: 5286916578773398541}
+  hit: 0
   defaultMaterial: {fileID: 2100000, guid: d2f76d432d85d4913afb8ce843cdeb8d, type: 2}
   hitMaterial: {fileID: 2100000, guid: 9d626be68bf3d4a4b9c65480632769b3, type: 2}
   clubMeshRenderer: {fileID: 6628060944373685462}
@@ -155,6 +156,7 @@ MonoBehaviour:
   strokeCount: 0
   sound: {fileID: -1906799583166821505}
   hitSound: {fileID: 8300000, guid: caf0e36d3ce1a0c48bff0338e40f5f1f, type: 3}
+  right: 0
 --- !u!54 &6400219277457881648
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -446,8 +448,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.7925385, z: 8.896961}
-  m_Center: {x: -4.0840267e-10, y: -0.39626718, z: 0.8956189}
+  m_Size: {x: 1.2868565, y: 1.7925385, z: 8.896961}
+  m_Center: {x: -0.14342706, y: -0.39626715, z: 0.8956186}
 --- !u!1 &6386551869651621286
 GameObject:
   m_ObjectHideFlags: 0
@@ -466,7 +468,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5921318298005641575
 Transform:
   m_ObjectHideFlags: 0
