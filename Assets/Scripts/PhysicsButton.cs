@@ -60,6 +60,6 @@ public class PhysicsButton : MonoBehaviour
     public void MoveToScene()
     {
         Debug.Log("Calling Move to scene");
-        SceneManager.LoadScene("Scenes/Level 1");
+        SceneManager.LoadScene("Scenes/Level 2");
     }
 }

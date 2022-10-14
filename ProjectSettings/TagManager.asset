@@ -8,6 +8,8 @@ TagManager:
   - controller
   - start
   - lake
+  - right
+  - left
   layers:
   - Default
   - TransparentFX

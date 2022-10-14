@@ -24,7 +24,7 @@ public class ClubHit : MonoBehaviour
     public Material defaultMaterial;
     public Material hitMaterial;
     private GameObject ballRef;
-    private MeshRenderer _ballMeshRender;
+    public MeshRenderer clubMeshRenderer;
     private Rigidbody _ballRigidbody;
     private Rigidbody _rigidBody;
     public XRBaseController Controller;
@@ -32,6 +32,7 @@ public class ClubHit : MonoBehaviour
     public int strokeCount;
     public AudioSource sound;
     public AudioClip hitSound;
+    public bool right;
     void Start()
     {
         strokeCount = 0;
@@ -42,15 +43,11 @@ public class ClubHit : MonoBehaviour
         {
             _directionArrays[i] = Vector3.zero;
         }
-        _currentDirIndex = 0;
 
-        GameObject[] controllers;
-        controllers = GameObject.FindGameObjectsWithTag("controller");
-        Debug.Assert(controllers.Length == 1);
-        GameObject rightController = controllers[0];
-        Controller = rightController.GetComponent<XRBaseController>();
+        Controller = transform.parent.parent.GetComponent<ActionBasedController>();
+        _currentDirIndex = 0;
+        
         ballRef = GameObject.FindWithTag("ball");
-        _ballMeshRender = ballRef.GetComponent<MeshRenderer>();
         _ballRigidbody = ballRef.GetComponent<Rigidbody>();
     }
 
@@ -66,7 +63,7 @@ public class ClubHit : MonoBehaviour
                 _hit = false;
                 if (ballRef)
                 {
-                    _ballMeshRender.material = defaultMaterial;
+                    clubMeshRenderer.material = defaultMaterial;
                 }
                 _rigidBody.detectCollisions = true;
             }
@@ -96,7 +93,7 @@ public class ClubHit : MonoBehaviour
             _rigidBody.detectCollisions = false;
             _hit = true;
             hitTime = 0;
-            _ballMeshRender.material = hitMaterial;
+            clubMeshRenderer.material = hitMaterial;
             // take the average of our direction array
             Vector3 arraysum = Vector3.zero;
             for (var i = 0; i < _directionArrays.Length; i++)
