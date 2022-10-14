@@ -1,21 +1,20 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Numerics;
 using UnityEngine;
+using Vector3 = UnityEngine.Vector3;
 
-public class BumperScript : MonoBehaviour
+public class Trampoline : MonoBehaviour
 {
     public Rigidbody ballRigidBody;
 
     public AudioClip bounceSound;
     public AudioSource audioSource;
-
+    
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("Hit the trampoline");
         if (collision.gameObject.CompareTag("ball"))
         {
-            ballRigidBody.AddForce(10 * collision.contacts[0].normal, ForceMode.Impulse);
-            Debug.DrawRay(collision.contacts[0].point, collision.contacts[0].normal);
+            ballRigidBody.AddForce((5 * Vector3.up) + (2 * Vector3.forward), ForceMode.Impulse);
             audioSource.PlayOneShot(bounceSound);
         }
     }
